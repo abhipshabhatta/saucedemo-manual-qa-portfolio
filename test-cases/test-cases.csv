@@ -1,0 +1,47 @@
+Test case ID,Module,Test scenario,Preconditions,Test Steps,Expected Result,Test Data,Actual Result,Status,Priority,Evidence,Notes
+TC-LOGIN-001,Login,Login using valid credentials,User is on the SauceDemo login page,"1. Enter username. 
+2. Enter password. 
+3. Click Login.",The Products page should be displayed.,"Username: error_user, Password: secret_sauce",The Products page was displayed successfully.,Pass,High,,"Chrome displayed a password warning.
+It did not affect the website login."
+TC-LOGIN-002,Login,Login using an incorrect password,User is on the SauceDemo login page,"1. Enter the username.
+2. Enter the incorrect password.
+3. Click Login.","Login should be rejected and an 
+error message should appear.","Username: error_user, Password: wrong_password123","Login was rejected. The error message 
+""Epic sadface: Username and password do not 
+match any user in this service"" was displayed.",Pass,High,,"The application correctly rejected an 
+incorrect password."
+TC-LOGIN-003,Login,Login with an empty username,User is on the SauceDemo login page,"1. Leave username empty
+2. Enter the password
+3. Click Login","Login should be rejected and a username 
+required error message should appear.","Username: empty, Password: secret_sauce","Login was rejected. The error message ""Epic 
+sadface: Username is required"" was displayed.",Pass,High,,"The application correctly validates an 
+empty username field."
+TC-LOGIN-004,Login,Login with an empty password,User is on the SauceDemo login page,"1. Enter username
+2. Leave password empty
+3. Click Login","Login should be rejected and password-
+required error message should appear.","Username: error_user, Password: empty","Login was rejected. The error messgae ""Epic 
+sadface: Password is required"" was displayed.",Pass,High,,"The application correctly validates an 
+empty password field."
+TC-LOGIN-005,Login,Login with a locked-out user account,User is on the SauceDemo login page,"1. Enter username
+2. Enter password.
+3. Click Login","Login should be rejected and an account-
+locked error message should appear.","Username: locked_out_user, Password: secret_sauce","Retest: Login was rejected. The message ""Epic 
+sadface: Sorry, this user has been locked out"" 
+was displayed.",Pass,High,,"First attempt displayed an invalid-credentials message. 
+Retested in Chrome Incognito using the same credentials 
+and received the expected locked-out message. Test 
+passed on retest. Initial inconsistency not reproduced."
+TC-CART-001,Cart,Add a product to the shopping cart,User is logged in and on the Products page.,"1. Find Sauce Labs Backpack.
+2. Click Add to cart.
+3. Open the shopping cart.","Sauce Labs Backpack should appear in 
+the cart with quantity 1.","Username: error_user, Product: Sauce Labs Backpack","Sauce Labs Backpack appeared in the shopping 
+cart with quantity 1.",Pass,High,,The product was successfully added to the cart.
+TC-CART-002,Cart,"Remove a product from the 
+shopping cart","User is logged in and Sauce Labs Backpack 
+is present in the cart.","1. Open the shopping cart.
+2. Find Sauce Labs Backpack.
+3. Click Remove.","Sauce Labs Backpack should disappear 
+from the cart and the cart badge should 
+no longer show 1.","Product: Sauce Labs Backpack, Quantity: 1","Sauce Labs Backpack was removed from the cart.
+The product disappeared and the cart badge no 
+longer displayed 1.",Pass,High,,Product removal and cart badge update worked as expected.
